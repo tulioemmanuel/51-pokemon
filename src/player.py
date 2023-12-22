@@ -3,7 +3,7 @@ from base.entity import Entity
 
 
 class Player(Entity):
-    def __init__(self, name="player", x=0, y=0):
+    def __init__(self, name="player", x=100, y=0):
         Entity.__init__(self)
         self.name = name
         surface = pygame.Surface(
