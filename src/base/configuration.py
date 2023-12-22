@@ -18,11 +18,14 @@ class Configuration(metaclass=SingletonMeta):
     CONFIGURATION_JSON_FILE_NAME = "config.json"
     SRC_FOLDER_NAME = "src"
     ASSETS_FOLDER_NAME = "assets"
+    SPRITES_FOLDER_NAME = "sprites"
+    BACKGROUND_FOLDER_NAME = "bgs"
+    ASSETS_DIR_PATH = ""
 
     settings = {}
 
     def __init__(self):
-        assets_dir_path = (
+        Configuration.ASSETS_DIR_PATH = (
             os.path.join(os.path.join(os.getcwd(), Configuration.ASSETS_FOLDER_NAME))
             if sys.platform == "emscripten"
             else os.path.join(
@@ -33,7 +36,7 @@ class Configuration(metaclass=SingletonMeta):
         )
 
         with open(
-            os.path.join(assets_dir_path, Configuration.CONFIGURATION_JSON_FILE_NAME)
+            os.path.join(Configuration.ASSETS_DIR_PATH, Configuration.CONFIGURATION_JSON_FILE_NAME)
         ) as config_file:
             config_json = json.load(config_file)
             for key in config_json:

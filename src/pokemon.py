@@ -1,6 +1,7 @@
 import pygame
 from base.game import Game
 from base.configuration import Configuration
+from base.tile import Tile
 from player import Player
 
 
@@ -14,7 +15,15 @@ class Pokemon(Game):
         super().setup()
         self.settings = Configuration().settings
         self.player = Player()
-        self.renderer.set_drawables([self.player])
+        self.tiles = []
+        self._setup_bg()
+        self.renderer.set_drawables([self.tiles, self.player])
+
+    # TODO(tulio): Mudar abordagem de criação do bg
+    def _setup_bg(self):
+        for y in range(0, self.renderer.screen.get_height(), 16):
+            for x in range(0, self.renderer.screen.get_width(), 16):
+                self.tiles.append(Tile(x, y))
 
     def update(self):
         self.player.update()
