@@ -1,0 +1,13 @@
+{
+    "title": "Pokemon",
+    "log_level": "INFO",
+    "screen_width": 600,
+    "screen_height": 400,
+    "bg_r": 55,
+    "bg_g": 100,
+    "bg_b": 200,
+    "FPS": 30,
+    "player_width": 100,
+    "player_height": 100,
+    "player_speed": 10
+}
